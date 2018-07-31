@@ -2,6 +2,8 @@ import axios from 'axios';
 
 import {AUTH_USER, AUTH_ERROR} from './type';
 
+
+// in here, formProps = {email, password}
 export const signup = (formProps, callback) => async dispatch => {
 
 	try {
@@ -19,4 +21,11 @@ export const signup = (formProps, callback) => async dispatch => {
 	
 };
 	
-// formProps = {email, password}
+
+export const signout = () =>{
+	localStorage.removeItem('token');
+	return {
+		type: AUTH_USER,
+		payload: ''
+	};
+}
